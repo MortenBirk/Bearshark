@@ -1,0 +1,5 @@
+{
+  "filename": "some_path",
+  "directory": "some_path",
+  "webpackConfig": "some_path"
+}

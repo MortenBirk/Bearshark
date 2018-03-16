@@ -1,0 +1,6 @@
+package-lock.json
+example/tree.json
+node_modules/
+build/
+bin/tree.json
+*.tgz
