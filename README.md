@@ -5,6 +5,10 @@ The visualization requires [React](https://reactjs.org/) since the module onnly 
 
 ## Getting started
 First install Bearshark
+```
+    npm install --save-dev bearshark
+```
+
 ### Edit package.json
 In your `package.json` file add a Bearshark task for running the server
 ```
