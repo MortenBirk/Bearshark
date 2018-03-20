@@ -5,10 +5,18 @@ import * as d3 from 'd3';
 
 import ForceSimulation from './ForceSimulation';
 
+function id() {
+  // Math.random should be unique because of its seeding algorithm.
+  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+  // after the decimal.
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 export default class WrapperComponent extends React.Component {
 
   constructor(props) {
     super(props);
+    this.uuid = "bearshark" + id();
     this.state = {
       svg: null,
       graph: null
@@ -25,7 +33,7 @@ export default class WrapperComponent extends React.Component {
       }
     });
 
-    this.svg = d3.select("#bearshark-svg")
+    this.svg = d3.select("#" + this.uuid)
       .attr("width", this.props.width)
       .attr("height", this.props.height);
 
@@ -81,7 +89,7 @@ export default class WrapperComponent extends React.Component {
     return (
       <div>
         <svg
-          id="bearshark-svg"
+          id={this.uuid}
           style= {{
             backgroundColor: "#eee"
           }}
