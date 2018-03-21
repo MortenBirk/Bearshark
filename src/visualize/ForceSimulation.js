@@ -6,7 +6,6 @@ import * as d3 from 'd3';
 export default class WrapperComponent extends React.Component {
 
   componentDidMount() {
-
     this.svg = this.props.svg;
 
     this.link = this.svg.append("g")
@@ -78,11 +77,11 @@ export default class WrapperComponent extends React.Component {
       );
 
     d3.selectAll("circle")
-      .attr("cx", (d) => d.x)
-      .attr("cy", (d) => d.y);
+      .attr("cx", (d) => d ? d.x : 0)
+      .attr("cy", (d) => d ? d.y : 0);
     d3.selectAll("text")
-      .attr("x", (d) => d.x)
-      .attr("y", (d) => d.y);
+      .attr("x", (d) => d ? d.x : 0)
+      .attr("y", (d) => d ? d.y : 0);
   }
 
   calculateX = (tx, ty, sx, sy, radius) => {
