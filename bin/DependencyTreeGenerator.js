@@ -49,7 +49,6 @@ const convertTree = (name, acc, node) => {
       convertTree(id, acc, node[id]);
     });
   }
-
 }
 
 // Returns a dependency tree object for the given file
@@ -83,9 +82,6 @@ module.exports = () => {
   console.log("nodes " + acc.nodes.length)
   console.log("links " + acc.links.length);
 
-  // Save into the tree json file
-  const js = JSON.stringify(acc);
-  return js;
-};
 
-//fs.writeFile(path.resolve(__dirname, 'tree.json'), json, 'utf8', (err) => console.log(err || "Tree saved"));
+  return acc
+};

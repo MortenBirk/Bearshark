@@ -91,7 +91,8 @@ export default class WrapperComponent extends React.Component {
         <svg
           id={this.uuid}
           style= {{
-            backgroundColor: "#eee"
+            border: "1px solid black",
+            backgroundColor: "#fff"
           }}
           width={this.props.width}
           height={this.props.height}>
