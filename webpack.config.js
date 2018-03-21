@@ -1,9 +1,13 @@
 var path = require('path');
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    'index.js': './src/index.js',
+    'styleguidist_components/BearsharkTableOfContentsWrapper.js':  './src/styleguidist_components/BearsharkTableOfContentsWrapper.js',
+    'styleguidist_components/BearsharkComponentWrapper.js':  './src/styleguidist_components/BearsharkComponentWrapper.js',
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    filename: '[name]',
     libraryTarget: 'commonjs2'
   },
   module: {
@@ -19,6 +23,10 @@ module.exports = {
     ]
   },
   externals: {
-    'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    'react': 'commonjs react',
+    'react-dom': 'commonjs react-dom',
+    'bearshark': 'commonjs bearshark',
+    'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer': 'commonjs react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer',
+    'react-styleguidist/lib/rsg-components/ReactComponent/ReactComponentRenderer': 'commonjs react-styleguidist/lib/rsg-components/ReactComponent/ReactComponentRenderer'
   }
 };
