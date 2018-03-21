@@ -10,18 +10,26 @@ app.use(cors());
 
 const handlers = {
   full: (ctx) => {
-    console.log("full");
     ctx.body = DependencyTreeServer();
   },
 
   partial: (ctx, id) => {
-    console.log(id);
     ctx.body = DependencyTreeServer(id);
+  },
+
+  rebuild: (ctx) => {
+    ctx.body = DependencyTreeServer(null, true);
+  },
+
+  rebuildId: (ctx, id) => {
+    ctx.body = DependencyTreeServer(id, true);
   }
 }
 
 app.use(route.get('/', handlers.full));
 app.use(route.get('/id/:id', handlers.partial));
+app.use(route.get('/rebuild', handlers.rebuild));
+app.use(route.get('/rebuild/:id', handlers.rebuildId));
 
 app.listen(3462);
 console.log("bearshark server is running");

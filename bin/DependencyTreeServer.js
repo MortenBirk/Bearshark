@@ -4,12 +4,15 @@ const DependencyTreeGenerator = require('./DependencyTreeGenerator');
 const escapeRegExp = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 const replaceAll = (str, find, replace) => str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 
+let tree = null;
 
-module.exports = (id) => {
+module.exports = (id, rebuild) => {
   let treePathDivider = "\\"
   let requestIdDivider = "-"
+  if (!tree || rebuild) {
+    tree = DependencyTreeGenerator()
+  }
 
-  const tree = DependencyTreeGenerator()
   if (!id) {
     return tree;
   }

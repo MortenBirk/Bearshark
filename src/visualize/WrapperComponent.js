@@ -24,10 +24,9 @@ export default class WrapperComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log("Reloading bearshark dependency tree")
+    console.log("Fetching bearshark dependency tree")
     d3.json(this.props.url || "http://localhost:3462", (error, graph) => {
       this.setState({graph: graph});
-      console.log(graph);
       if (graph) {
         console.log("Bearshark dependency tree has been fetched");
       }
@@ -76,6 +75,25 @@ export default class WrapperComponent extends React.Component {
       .attr("height", this.props.height);
   }
 
+  rebuild = () => {
+    console.log("Reloading bearshark dependency tree")
+
+    // Generate the reload url
+    let url = "http://localhost:3462/rebuild"
+    if (this.props.url) {
+      url = this.props.url.replace("/id/", "/rebuild/")
+    }
+
+    console.log(url);
+    d3.json(url, (error, graph) => {
+      this.setState({graph: graph});
+      console.log(graph);
+      if (graph) {
+        console.log("Bearshark dependency tree has been reloaded");
+      }
+    });
+  }
+
   render() {
     const content = this.state.svg && this.state.graph
       ?
@@ -87,7 +105,10 @@ export default class WrapperComponent extends React.Component {
       :
         "";
     return (
-      <div>
+      <div
+        style={{
+          position: "relative"
+        }}>
         <svg
           id={this.uuid}
           style= {{
@@ -97,6 +118,19 @@ export default class WrapperComponent extends React.Component {
           width={this.props.width}
           height={this.props.height}>
         </svg>
+        <div
+          style={{
+            position: "absolute",
+            left: 10,
+            cursor: "pointer",
+            top: this.props.height - 45,
+            padding: "10px 25px",
+            border: "1px solid black",
+            backgroundColor: "#fff"
+          }}
+          onClick={this.rebuild}>
+          Rebuild
+        </div>
         {content}
       </div>
 

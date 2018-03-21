@@ -52,7 +52,7 @@ const convertTree = (name, acc, node) => {
 }
 
 // Returns a dependency tree object for the given file
-let tree = dependencyTree({
+let tree = () => dependencyTree({
   filename: workDir + "/" + config.filename,
   directory: workDir + "/" + config.directory,
   webpackConfig: config.webpackConfig ? workDir + "/" + config.webpackConfig : undefined, // If you are using any aliased modules
@@ -63,7 +63,7 @@ let tree = dependencyTree({
 module.exports = () => {
   // Convert the tree into something more usefull for D3
   let acc = {nodes: [], links: []}
-  convertTree(null, acc, tree);
+  convertTree(null, acc, tree());
   // The same entry might be pushed into nodes multiple times. Ensure that we only have one of each node
   // This simply filters to only unique entries
   //acc.nodes = acc.nodes.filter((v, i, a) => a.indexOf(v) === i);
