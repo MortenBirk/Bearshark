@@ -1,7 +1,7 @@
 {
   "name": "bearshark",
   "description": "A tool for visualization of a projects codebase",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/MortenBirk/Bearshark",
   "author": {
     "name": "Morten Birk"
@@ -17,17 +17,25 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
-    "d3": "^4.13.0",
     "dependency-tree": "^6.0.1",
     "koa": "^2.5.0",
     "koa-route": "^3.2.0"
   },
   "devDependencies": {
+    "d3": "^4.13.0",
     "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-2": "^6.22.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
-  }
+  },
+  "keywords": [
+    "documentation",
+    "docs",
+    "visualization",
+    "dependency tree",
+    "react",
+    "react-styleguidist"
+  ],
 }

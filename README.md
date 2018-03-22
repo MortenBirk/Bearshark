@@ -3,6 +3,8 @@ Bearshark is a tool used for visual analysis of a javascript codebase.
 It visualizes a codebases internal file dependencies based on `import` or `require` statements.
 The standard visualization requires [React](https://reactjs.org/) since the module only provides a React component for the visualization. However the actual codebase does **not** have to be React.
 
+![Preview1](./docs/example.PNG)
+
 Bearshark can either be visualized within a standalone visualization, or it can be integrated directly into [styleguidist](https://github.com/styleguidist/react-styleguidist)
 
 ## Getting started
