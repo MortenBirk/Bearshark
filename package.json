@@ -1,7 +1,7 @@
 {
   "name": "bearshark",
   "description": "A tool for visualization of a projects codebase",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/MortenBirk/Bearshark",
   "author": {
     "name": "Morten Birk"
@@ -9,10 +9,10 @@
   "license": "WTFPL",
   "main": "build/index.js",
   "bin": {
-    "bearshark": "bin/bearsharkServer.js"
+    "bearshark": "bin/BearsharkServer.js"
   },
   "scripts": {
-    "start": "node bin/bearsharkServer.js",
+    "start": "node bin/BearsharkServer.js",
     "build-umd": "webpack"
   },
   "dependencies": {
