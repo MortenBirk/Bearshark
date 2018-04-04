@@ -28,8 +28,7 @@ export default class VisualizationContainer extends React.Component {
       .attr("height", this.props.height);
 
     //add encompassing group for the zoom
-    let everything = this.svg.append("g")
-      .attr("class", "everything");
+    let everything = this.svg.select("everything");
 
     //add zoom capabilities
     let zoom_handler = d3.zoom()
@@ -86,6 +85,8 @@ export default class VisualizationContainer extends React.Component {
           }}
           width={this.props.width}
           height={this.props.height}>
+          <g
+            className="everything"/>
         </svg>
         {content}
       </div>
