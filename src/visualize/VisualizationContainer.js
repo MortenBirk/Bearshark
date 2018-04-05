@@ -3,7 +3,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-import ForceSimulation from './ForceSimulation';
+import ForceSimulation from './nodeGraph/ForceSimulation';
 
 function id() {
   // Math.random should be unique because of its seeding algorithm.
@@ -18,17 +18,15 @@ export default class VisualizationContainer extends React.Component {
     super(props);
     this.uuid = "bearshark" + id();
     this.state = {
-      svg: null
+      d3Node: null
     }
   }
 
   componentDidMount() {
-    this.svg = d3.select("#" + this.uuid)
-      .attr("width", this.props.width)
-      .attr("height", this.props.height);
+    this.d3Node = d3.select("#" + this.uuid);
 
     //add encompassing group for the zoom
-    let everything = this.svg.select("everything");
+    let everything = this.d3Node.select(".everything");
 
     //add zoom capabilities
     let zoom_handler = d3.zoom()
@@ -36,40 +34,23 @@ export default class VisualizationContainer extends React.Component {
           everything.attr("transform", d3.event.transform)
         });
 
-    zoom_handler(this.svg);
-
-    // Define the arrow at the end of links.
-    everything.append("defs").selectAll("marker")
-      .data(["suit"])
-      .enter().append("marker")
-        .attr("id", function(d) { return d; })
-        .attr("viewBox", "0 -5 10 10")
-        .attr("refX", 0)
-        .attr("refY", 0)
-        .attr("markerWidth", 6)
-        .attr("markerHeight", 6)
-        .attr("orient", "auto")
-      .append("path")
-        .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
-        .style("stroke", "black")
-        .style("opacity", "0.6");
+    zoom_handler(this.d3Node);
 
     this.setState({
-      svg: everything,
+      d3Node: everything,
     });
   }
 
   componentDidUpdate() {
-    this.svg
+    this.d3Node
       .attr("width", this.props.width)
       .attr("height", this.props.height);
   }
 
   render() {
-    const content = this.state.svg
+    const content = this.state.d3Node
       ?
         <ForceSimulation
-          svg={this.state.svg}
           width={this.props.width}
           height={this.props.height}
           graph={this.props.graph}/>
@@ -86,9 +67,11 @@ export default class VisualizationContainer extends React.Component {
           width={this.props.width}
           height={this.props.height}>
           <g
-            className="everything"/>
+            className="everything">
+            {content}
+          </g>
         </svg>
-        {content}
+
       </div>
 
     );
