@@ -3,8 +3,6 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-import ForceSimulation from './nodeGraph/ForceSimulation';
-
 function id() {
   // Math.random should be unique because of its seeding algorithm.
   // Convert it to base 36 (numbers + letters), and grab the first 9 characters
@@ -50,10 +48,7 @@ export default class VisualizationContainer extends React.Component {
   render() {
     const content = this.state.d3Node
       ?
-        <ForceSimulation
-          width={this.props.width}
-          height={this.props.height}
-          graph={this.props.graph}/>
+        this.props.children
       :
         "";
     return (

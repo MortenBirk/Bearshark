@@ -62,8 +62,9 @@ let tree = () => dependencyTree({
 
 module.exports = () => {
   // Convert the tree into something more usefull for D3
+  let originalTree = tree();
   let acc = {nodes: [], links: []}
-  convertTree(null, acc, tree());
+  convertTree(null, acc, originalTree);
   // The same entry might be pushed into nodes multiple times. Ensure that we only have one of each node
   // This simply filters to only unique entries
   //acc.nodes = acc.nodes.filter((v, i, a) => a.indexOf(v) === i);
@@ -82,6 +83,7 @@ module.exports = () => {
   console.log("nodes " + acc.nodes.length)
   console.log("links " + acc.links.length);
 
+  acc.originalTree = originalTree;
 
   return acc
 };

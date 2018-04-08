@@ -79,21 +79,6 @@ export default class ForceSimulation extends React.Component {
       links: this.state.links
     });
     return;
-
-    this.node.style("opacity", 1);
-    this.link.style("opacity", 1);
-    if (d) {
-      //Reduce the opacity of all but the neighbouring nodes
-      this.node.style("opacity", (o) => {
-        return this.neighboring(d, o) | this.neighboring(o, d) | o.index === d.index ? 1 : 0.1;
-      });
-      this.link.style("opacity", (o) => {
-        return d.index==o.source.index | d.index==o.target.index ? 1 : 0.1;
-      });
-    }
-    else {
-      this.hideHighlight();
-    }
   }
 
   hideHighlight = (e) => {
@@ -104,7 +89,6 @@ export default class ForceSimulation extends React.Component {
       nodes: this.state.nodes,
       links: this.state.links
     });
-    return;
   }
 
 

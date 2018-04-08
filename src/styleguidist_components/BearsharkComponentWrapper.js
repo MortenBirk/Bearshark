@@ -43,7 +43,8 @@ export default class BearsharkComponentWrapper extends Component {
         <Bearshark
           width={this.state.width}
           height={500}
-          url={"http://localhost:3462/id/" + replaceAll(this.props.pathLine, "\\", "-")}/>
+          url={"http://localhost:3462/id/" + replaceAll(this.props.pathLine, "\\", "-")}
+          nodeOnlyLayout={true}/>
       :
         "";
 
