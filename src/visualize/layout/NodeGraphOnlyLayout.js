@@ -3,8 +3,8 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-import VisualizationContainer from './VisualizationContainer';
-import ForceSimulation from './nodeGraph/ForceSimulation';
+import VisualizationContainer from '../VisualizationContainer';
+import ForceSimulation from '../nodeGraph/ForceSimulation';
 
 export default class NodeGraphOnlyLayout extends React.Component {
 

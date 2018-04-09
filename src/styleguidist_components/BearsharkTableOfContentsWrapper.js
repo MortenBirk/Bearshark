@@ -49,8 +49,9 @@ export default class BearsharkTableOfContentsWrapper extends Component {
             onClick={this.toggleBearshark}>
             <div onClick={this.ignoreClick}>
               <Bearshark
-                width={1000}
-                height={800}/>
+                width={window.innerWidth - 100}
+                height={window.innerHeight - 100}
+                closeWindow={this.toggleBearshark}/>
             </div>
           </div>
         , document.getElementsByTagName("BODY")[0])

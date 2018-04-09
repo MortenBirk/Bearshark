@@ -78,7 +78,10 @@ module.exports = () => {
     return node;
   });
   // Apply a special group to the initial root node
-  acc.nodes[0].group = 1;
+  if (acc.nodes.length > 0) {
+    acc.nodes[0].group = 1;
+  }
+
   console.log("Generating new dependency tree");
   console.log("nodes " + acc.nodes.length)
   console.log("links " + acc.links.length);

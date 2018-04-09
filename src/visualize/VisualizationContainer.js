@@ -52,11 +52,15 @@ export default class VisualizationContainer extends React.Component {
       :
         "";
     return (
-      <div>
+      <div
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 0
+        }}>
         <svg
           id={this.uuid}
           style= {{
-            border: "1px solid black",
             backgroundColor: "#fff"
           }}
           width={this.props.width}

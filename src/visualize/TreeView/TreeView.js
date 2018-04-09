@@ -15,6 +15,13 @@ export default class TreeView extends React.Component {
 
     // First prepare the root node to work with the children concept
     const rootKey = Object.keys(props.graph.originalTree)[0]
+    if (!rootKey) {
+      this.state = {
+        nodes: []
+      };
+      return;
+    }
+
     let rootGraph = {
       name: rootKey.split("\\").slice(-1)[0],
       children: props.graph.originalTree[rootKey]
@@ -39,11 +46,11 @@ export default class TreeView extends React.Component {
     this.tree = d3.tree().nodeSize([50,300]);
     this.tree(hierarchy);
 
-    this.offset = {x: props.height / 2, y: 100}
+    this.offset = {x: props.height / 2, y: 100};
 
     this.state = {
       nodes: hierarchy.descendants()
-    }
+    };
   }
 
 

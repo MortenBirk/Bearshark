@@ -55,21 +55,11 @@ export default class DataProvider extends React.Component {
         <div
           style={{
             position: "relative",
-            width: this.props.width,
-            height: this.props.height,
-            border: "1px solid black",
-            backgroundColor: "#fff",
-            textAlign: "center"
+            fontSize: "30px",
+            top: "50%",
+            transform: "translateY(-50%)"
           }}>
-          <div
-            style={{
-              position: "relative",
-              fontSize: "30px",
-              top: "50%",
-              transform: "translateY(-50%)"
-            }}>
-            Loading...
-          </div>
+          Loading...
         </div>
       );
     }
