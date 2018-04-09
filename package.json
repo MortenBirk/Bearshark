@@ -1,7 +1,7 @@
 {
   "name": "bearshark",
   "description": "A tool for visualization of a projects codebase",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "homepage": "https://github.com/MortenBirk/Bearshark",
   "author": {
     "name": "Morten Birk"
