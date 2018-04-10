@@ -1,14 +1,15 @@
 var path = require('path');
 module.exports = {
   entry: {
-    'index.js': './src/index.js',
+    'umd/index.js': './src/index.js',
     'styleguidist_components/BearsharkTableOfContentsWrapper.js':  './src/styleguidist_components/BearsharkTableOfContentsWrapper.js',
-    'styleguidist_components/BearsharkComponentWrapper.js':  './src/styleguidist_components/BearsharkComponentWrapper.js',
+    'styleguidist_components/BearsharkComponentWrapper.js':  './src/styleguidist_components/BearsharkComponentWrapper.js'
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name]',
-    libraryTarget: 'commonjs2'
+    library: 'bearshark',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [
@@ -23,9 +24,24 @@ module.exports = {
     ]
   },
   externals: {
-    'react': 'commonjs react',
-    'react-dom': 'commonjs react-dom',
-    'bearshark': 'commonjs bearshark',
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
+    'bearshark': {
+      root: 'Bearshark',
+      commonjs2: 'bearshark',
+      commonjs: 'bearshark',
+      amd: 'bearshark'
+    },
     'react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer': 'commonjs react-styleguidist/lib/rsg-components/TableOfContents/TableOfContentsRenderer',
     'react-styleguidist/lib/rsg-components/ReactComponent/ReactComponentRenderer': 'commonjs react-styleguidist/lib/rsg-components/ReactComponent/ReactComponentRenderer'
   }

@@ -1,13 +1,13 @@
 {
   "name": "bearshark",
   "description": "A tool for visualization of a projects codebase",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/MortenBirk/Bearshark",
   "author": {
     "name": "Morten Birk"
   },
   "license": "WTFPL",
-  "main": "build/index.js",
+  "main": "build/umd/index.js",
   "bin": {
     "bearshark": "bin/BearsharkServer.js"
   },
@@ -19,7 +19,8 @@
     "@koa/cors": "^2.2.1",
     "dependency-tree": "^6.0.1",
     "koa": "^2.5.0",
-    "koa-route": "^3.2.0"
+    "koa-route": "^3.2.0",
+    "koa-static": "^4.0.2"
   },
   "devDependencies": {
     "d3": "^4.13.0",

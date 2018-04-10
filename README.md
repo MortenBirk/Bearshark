@@ -1,11 +1,10 @@
 # Bearshark
 Bearshark is a tool used for visual analysis of a javascript codebase.
 It visualizes a codebases internal file dependencies based on `import` or `require` statements.
-The standard visualization requires [React](https://reactjs.org/) since the module only provides a React component for the visualization. However the actual codebase does **not** have to be React.
 
 ![Preview1](./docs/example.PNG)
 
-Bearshark can either be visualized within a standalone visualization, or it can be integrated directly into [styleguidist](https://github.com/styleguidist/react-styleguidist)
+Bearshark can either be visualized within a standalone visualization, it can be integrated into a [react](https://reactjs.org/) application, or it can be integrated directly into [react-styleguidist](https://github.com/styleguidist/react-styleguidist)
 
 ## Getting started
 First install Bearshark
@@ -43,7 +42,9 @@ Simply run the script you added to `package.json` in order to start the server
 npm run bearsharkServer
 ```
 
-### Styleguidist visualization
+Bearshark is now available at [http://localhost:3462/bearshark.html](http://localhost:3462/bearshark.html)
+
+## Styleguidist visualization
 If you are using [styleguidist](https://github.com/styleguidist/react-styleguidist), bearshark provides easy integration directly into styleguidist.
 
 Update `styleguide.config.js` with the two bearshark wrapper components

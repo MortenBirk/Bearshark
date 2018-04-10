@@ -2,10 +2,12 @@
 
 const DependencyTreeServer = require('./DependencyTreeServer');
 
+const serve = require('koa-static');
 const Koa = require('koa');
 const route = require('koa-route');
 const cors = require('@koa/cors');
 const app = new Koa();
+
 app.use(cors());
 
 const handlers = {
@@ -26,10 +28,13 @@ const handlers = {
   }
 }
 
+
 app.use(route.get('/', handlers.full));
 app.use(route.get('/id/:id', handlers.partial));
 app.use(route.get('/rebuild', handlers.rebuild));
 app.use(route.get('/rebuild/:id', handlers.rebuildId));
+app.use(serve(__dirname + '/public'));
+app.use(serve(__dirname + '/../build/umd'));
 
 app.listen(3462);
 console.log("bearshark server is running");
