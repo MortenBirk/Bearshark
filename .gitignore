@@ -3,4 +3,5 @@ example/tree.json
 node_modules/
 build/
 bin/tree.json
+.vscode/
 *.tgz

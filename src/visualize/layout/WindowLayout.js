@@ -1,11 +1,10 @@
 "use strict";
 
 import React from 'react';
-import * as d3 from 'd3';
 
 import VisualizationContainer from '../VisualizationContainer';
-import ForceSimulation from '../nodeGraph/ForceSimulation';
-import TreeView from '../treeView/TreeView';
+import DependencyView from '../DependencyView/DependencyView';
+import TreeView from '../TreeView/TreeView';
 import Sidebar from './Sidebar';
 
 export default class WindowLayout extends React.Component {
@@ -28,7 +27,7 @@ export default class WindowLayout extends React.Component {
     let visualization = "";
     if (this.state.visualization === "nodeGraph") {
       visualization = (
-        <ForceSimulation
+        <DependencyView
           width={this.props.width - 160}
           height={this.props.height}
           graph={this.props.graph}/>

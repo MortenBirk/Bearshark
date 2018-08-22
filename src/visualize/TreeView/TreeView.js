@@ -25,6 +25,7 @@ export default class TreeView extends React.Component {
       return;
     }
 
+    // Convert the originalTree which is just a tree of pathnames into a tree of more usable objects with name and id.
     let createDataTree = (entry, parent, path, id) => {
       const objProps = Object.keys(entry);
       let node = {
